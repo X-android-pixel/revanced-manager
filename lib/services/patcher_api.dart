@@ -457,6 +457,32 @@ class PatcherAPI {
     }
     return '';
   }
+
+  Future<List<ApplicationWithIcon>> getInstalledApps() async {
+    final appList = await DeviceApps.getInstalledApplications(
+      includeAppIcons: true,
+      onlyAppsWithLaunchIntent: true,
+    );
+    return appList.map((e) => e as ApplicationWithIcon).toList();
+  }
+
+  Future<bool> mountApk(String packageName, String apkPath) async {
+    final bool hasRootPermissions = await _rootAPI.hasRootPermissions();
+    if (!hasRootPermissions) {
+      return false;
+    }
+
+    final app = await DeviceApps.getApp(packageName);
+    if (app == null) {
+      return false;
+    }
+
+    return await _rootAPI.install(
+      packageName,
+      app.apkFilePath,
+      apkPath,
+    );
+  }
 }
 
 enum InstallStatus {

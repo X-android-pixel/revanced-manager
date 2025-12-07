@@ -9,6 +9,7 @@ import 'package:revanced_manager/app/app.locator.dart';
 import 'package:revanced_manager/services/root_api.dart';
 import 'package:revanced_manager/services/toast.dart';
 import 'package:revanced_manager/ui/views/home/home_view.dart';
+import 'package:revanced_manager/ui/views/mount/mount_view.dart';
 import 'package:revanced_manager/ui/views/patcher/patcher_view.dart';
 import 'package:revanced_manager/ui/views/settings/settings_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -62,6 +63,8 @@ class NavigationViewModel extends IndexTrackingViewModel {
       case 1:
         return const PatcherView();
       case 2:
+        return const MountView();
+      case 3:
         return const SettingsView();
       default:
         return const HomeView();
