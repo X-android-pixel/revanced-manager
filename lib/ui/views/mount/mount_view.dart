@@ -75,7 +75,6 @@ class _MountViewState extends State<MountView> {
                                       pkgName: app.packageName,
                                       icon: app.icon,
                                       installedVersion: app.versionName!,
-                                      patchesCount: 0,
                                       onTap: () => model.selectInstalledApp(
                                         context,
                                         app.packageName,
