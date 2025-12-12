@@ -57,6 +57,13 @@ class NavigationView extends StatelessWidget {
               ),
               NavigationDestination(
                 icon: model.isIndexSelected(2)
+                    ? const Icon(Icons.move_to_inbox)
+                    : const Icon(Icons.move_to_inbox_outlined),
+                label: "Mount",
+                tooltip: '',
+              ),
+              NavigationDestination(
+                icon: model.isIndexSelected(3)
                     ? const Icon(Icons.settings)
                     : const Icon(Icons.settings_outlined),
                 label: t.navigationView.settingsTab,
